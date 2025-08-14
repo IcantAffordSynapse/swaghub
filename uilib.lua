@@ -435,6 +435,16 @@ function swaghublib:Window(name)
         UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
         UIListLayout.Parent = TabSectionsContainer
 
+        ImageButton2.MouseButton1Click:Connect(function()
+            for i, v in pairs(MainSection:GetChildren()) do
+                if v.Name == "TabSectionsContainer" or v.Name == "SectionContainer" then
+                    v.Visible = false
+                end
+            end
+        end)
+
+        TabSectionsContainer.Visible = true
+
         local channels = {}
         
         function channels:Channel(name)
