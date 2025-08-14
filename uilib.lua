@@ -441,9 +441,9 @@ function swaghublib:Window(name)
                     v.Visible = false
                 end
             end
-        end)
 
-        TabSectionsContainer.Visible = true
+            TabSectionsContainer.Visible = true
+        end)
 
         local channels = {}
         
