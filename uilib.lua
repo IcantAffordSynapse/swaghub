@@ -1008,6 +1008,57 @@ function swaghublib:Window(name)
                         pcall(cb, v)
                     end)
                 end
+
+                local addOns = {}
+
+                function addOns:Add(t)
+                    local DropdownToggleInstance = Instance.new("ImageButton")
+                    DropdownToggleInstance.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                    DropdownToggleInstance.AnchorPoint = Vector2.new(0.5, 0.5)
+                    DropdownToggleInstance.Name = "DropdownToggleInstance"
+                    DropdownToggleInstance.Position = UDim2.new(0.4600837826728821, 0, 0.11535009741783142, 0)
+                    DropdownToggleInstance.Size = UDim2.new(0.9201668500900269, 0, 0.11155178397893906, 0)
+                    DropdownToggleInstance.BorderSizePixel = 0
+                    DropdownToggleInstance.AutomaticSize = Enum.AutomaticSize.Y
+                    DropdownToggleInstance.BackgroundColor3 = Color3.fromRGB(25, 27, 29)
+                    DropdownToggleInstance.Parent = DropdownContainer
+
+                    local UICorner = Instance.new("UICorner")
+                    UICorner.CornerRadius = UDim.new(0.20000000298023224, 0)
+                    UICorner.Parent = DropdownToggleInstance
+
+                    local Border = Instance.new("UIStroke")
+                    Border.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+                    Border.Transparency = 0.800000011920929
+                    Border.Name = "Border"
+                    Border.Color = Color3.fromRGB(255, 255, 255)
+                    Border.Parent = DropdownToggleInstance
+
+                    local Header = Instance.new("TextLabel")
+                    Header.FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+                    Header.AnchorPoint = Vector2.new(0.5, 0.5)
+                    Header.ZIndex = 3
+                    Header.TextSize = 14
+                    Header.Size = UDim2.new(0.9044724702835083, 0, 0.5290124416351318, 0)
+                    Header.TextColor3 = Color3.fromRGB(255, 255, 255)
+                    Header.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                    Header.Text = v
+                    Header.Name = "Header"
+                    Header.TextWrapped = true
+                    Header.BackgroundTransparency = 1
+                    Header.TextXAlignment = Enum.TextXAlignment.Left
+                    Header.Position = UDim2.new(0.4843691289424896, 0, 0.5000000596046448, 0)
+                    Header.BorderSizePixel = 0
+                    Header.TextScaled = true
+                    Header.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    Header.Parent = DropdownToggleInstance
+
+                    DropdownToggleInstance.MouseButton1Click:Connect(function()
+                        pcall(cb, v)
+                    end)
+                end
+
+                return addOns
             end
 
             function instances:Slider(name, min, max, norm, cb)
