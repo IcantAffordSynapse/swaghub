@@ -1042,7 +1042,7 @@ function swaghublib:Window(name)
                     Header.Size = UDim2.new(0.9044724702835083, 0, 0.5290124416351318, 0)
                     Header.TextColor3 = Color3.fromRGB(255, 255, 255)
                     Header.BorderColor3 = Color3.fromRGB(0, 0, 0)
-                    Header.Text = v
+                    Header.Text = t
                     Header.Name = "Header"
                     Header.TextWrapped = true
                     Header.BackgroundTransparency = 1
