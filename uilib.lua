@@ -1054,7 +1054,7 @@ function swaghublib:Window(name)
                     Header.Parent = DropdownToggleInstance
 
                     DropdownToggleInstance.MouseButton1Click:Connect(function()
-                        pcall(cb, v)
+                        pcall(cb, t)
                     end)
                 end
 
