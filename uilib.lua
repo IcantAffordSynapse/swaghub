@@ -429,6 +429,7 @@ function swaghublib:Window(name)
         TabSectionsContainer.BorderSizePixel = 0
         TabSectionsContainer.BackgroundColor3 = Color3.fromRGB(25, 27, 29)
         TabSectionsContainer.Parent = MainSection
+        TabSectionsContainer.Visible = false
 
         local UIListLayout = Instance.new("UIListLayout")
         UIListLayout.Padding = UDim.new(0.019999999552965164, 0)
