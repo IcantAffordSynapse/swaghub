@@ -1592,6 +1592,23 @@ function swaghublib:Window(name)
             AltManagerFrame.Visible = not AltManagerFrame.Visible
         end)
 
+        RemoveBtn.MouseButton1Click:Connect(function()
+            pcall(function()
+                local altTable = HTTPService:JSONDecode(readfile("SWAG_HUB_101/AltAccounts.json"))
+                
+                for i, v in pairs(altTable) do
+                    if v.Username == Username2.Text then
+                        table.remove(altTable, i)
+                        break
+                    end
+                end
+
+                writefile("SWAG_HUB_101/AltAccounts.json", HTTPService:JSONEncode(altTable))
+            end)
+            ManageContainer.Visible = false
+            SectionContainer.Visible = true
+        end)
+
         local accounts = {}
 
         function accounts:AddAcc(name, cash, userId, lastUpdate)
