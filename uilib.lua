@@ -1604,6 +1604,15 @@ function swaghublib:Window(name)
                     end
                 end
 
+                for i, v in pairs(SectionContainer:GetChildren()) do
+                    if v:IsA("Frame") then
+                        if v.Username.Text == v.Username then
+                            v:Destroy()
+                            break
+                        end
+                    end
+                end
+
                 writefile("SWAG_HUB_101/AltAccounts.json", HTTPService:JSONEncode(altTable))
             end)
             if suc then
