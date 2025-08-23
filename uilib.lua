@@ -1600,16 +1600,15 @@ function swaghublib:Window(name)
                 for i, v in pairs(altTable) do
                     if v.Username == Username2.Text then
                         table.remove(altTable, i)
-                        break
-                    end
-                end
-
-                for i, v in pairs(SectionContainer:GetChildren()) do
-                    if v:IsA("Frame") then
-                        if v.Username.Text == v.Username then
-                            v:Destroy()
-                            break
+                        for i, v2 in pairs(SectionContainer:GetChildren()) do
+                            if v2:IsA("Frame") then
+                                if v2.Username.Text == v.Username then
+                                    v2:Destroy()
+                                    break
+                                end
+                            end
                         end
+                        break
                     end
                 end
 
