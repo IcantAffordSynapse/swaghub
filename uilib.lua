@@ -1593,9 +1593,10 @@ function swaghublib:Window(name)
         end)
 
         RemoveBtn.MouseButton1Click:Connect(function()
-            pcall(function()
+            local suc, err = pcall(function()
+                local HTTPService = game:GetService("HttpService")
                 local altTable = HTTPService:JSONDecode(readfile("SWAG_HUB_101/AltAccounts.json"))
-                
+
                 for i, v in pairs(altTable) do
                     if v.Username == Username2.Text then
                         table.remove(altTable, i)
@@ -1605,6 +1606,11 @@ function swaghublib:Window(name)
 
                 writefile("SWAG_HUB_101/AltAccounts.json", HTTPService:JSONEncode(altTable))
             end)
+            if suc then
+                warn("success")
+            else
+                warn(err)
+            end
             ManageContainer.Visible = false
             SectionContainer.Visible = true
         end)
