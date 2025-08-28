@@ -1067,9 +1067,11 @@ function swaghublib:Window(name)
                 end
 
                 function addOns:Remove(t)
-                    pcall(function()
+                    local suc, err = pcall(function()
                         DropdownContainer[t]:Destroy()
                     end)
+
+                    if suc then warn("success") else warn(err) end
                 end
 
                 return addOns
@@ -1594,34 +1596,51 @@ function swaghublib:Window(name)
 
         RemoveBtn.MouseButton1Click:Connect(function()
             local suc, err = pcall(function()
-                local HTTPService = game:GetService("HttpService")
-                local altTable = HTTPService:JSONDecode(readfile("SWAG_HUB_101/AltAccounts.json"))
+                local HttpService = game:GetService("HttpService")
+                local altTable = HttpService:JSONDecode(readfile("SWAG_HUB_101/AltAccounts.json"))
 
-                for i, v in pairs(altTable) do
-                    if v.Username == Username2.Text then
-                        table.remove(altTable, i)
-                        for i, v2 in pairs(SectionContainer:GetChildren()) do
-                            if v2:IsA("Frame") then
-                                if v2.Username.Text == v.Username then
-                                    v2:Destroy()
-                                    break
-                                end
-                            end
-                        end
+                local target = Username2.Text
+                local removedIndex
+
+                -- Search for the entry
+                for i, v in ipairs(altTable) do
+                    if v.Username == target then
+                        removedIndex = i
                         break
                     end
                 end
 
-                writefile("SWAG_HUB_101/AltAccounts.json", HTTPService:JSONEncode(altTable))
+                if removedIndex then
+                    -- Remove from the table
+                    table.remove(altTable, removedIndex)
+
+                    -- Update UI
+                    for _, v2 in ipairs(SectionContainer:GetChildren()) do
+                        if v2:IsA("Frame") and v2:FindFirstChild("Username") then
+                            if v2.Username.Text == target then
+                                v2:Destroy()
+                                break
+                            end
+                        end
+                    end
+
+                    -- Write back to file
+                    writefile("SWAG_HUB_101/AltAccounts.json", HttpService:JSONEncode(altTable))
+                else
+                    warn("No matching username found in file")
+                end
             end)
+
             if suc then
                 warn("success")
             else
                 warn(err)
             end
+
             ManageContainer.Visible = false
             SectionContainer.Visible = true
         end)
+
 
         local accounts = {}
 
