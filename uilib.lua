@@ -2,8 +2,64 @@ local swaghublib = {}
 
 local UIS = game:GetService("UserInputService")
 
+local Themes = {
+    Dark = {
+        Background = Color3.fromRGB(30, 30, 30),
+        Secondary = Color3.fromRGB(25, 27, 29),
+        Header = Color3.fromRGB(26, 28, 29),
+        Text = Color3.fromRGB(255, 255, 255),
+        Accent = Color3.fromRGB(255, 255, 255),
+        Divider = Color3.fromRGB(255, 255, 255),
+    },
+
+    Light = {
+        Background = Color3.fromRGB(245, 245, 245),
+        Secondary = Color3.fromRGB(230, 230, 230),
+        Header = Color3.fromRGB(220, 220, 220),
+        Text = Color3.fromRGB(20, 20, 20),
+        Accent = Color3.fromRGB(0, 0, 0),
+        Divider = Color3.fromRGB(100, 100, 100),
+    },
+
+    Purple = {
+        Background = Color3.fromRGB(40, 30, 60),
+        Secondary = Color3.fromRGB(50, 35, 80),
+        Header = Color3.fromRGB(60, 45, 90),
+        Text = Color3.fromRGB(255, 255, 255),
+        Accent = Color3.fromRGB(180, 120, 255),
+        Divider = Color3.fromRGB(180, 120, 255),
+    },
+}
+
 function swaghublib:Window(name)
     local sliderInUse = false
+
+    local currentTheme = Themes.Dark
+    local allElements = {}
+
+    local function applyTheme(theme)
+        for obj, props in pairs(allElements) do
+            for property, key in pairs(props) do
+                if theme[key] then
+                    obj[property] = theme[key]
+                end
+            end
+        end
+    end
+
+    local function register(obj, property, themeKey)
+        allElements[obj] = allElements[obj] or {}
+        allElements[obj][property] = themeKey
+    end
+
+    function swaghublib:SetTheme(themeName)
+        if Themes[themeName] then
+            currentTheme = Themes[themeName]
+            applyTheme(currentTheme)
+        else
+            warn("Invalid theme: " .. tostring(themeName))
+        end
+    end
 
     function dragify(Frame)
         local dragToggle = nil
@@ -412,13 +468,35 @@ function swaghublib:Window(name)
         ImageButton2.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ImageButton2.Size = UDim2.new(1, 0, 0.21198207139968872, 0)
         ImageButton2.BorderSizePixel = 0
-        ImageButton2.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+        ImageButton2.BackgroundColor3 = Color3.fromRGB(25, 27, 29)
         ImageButton2.Parent = SectionsContainer
-        ImageButton2.Image = img
 
         local UICorner = Instance.new("UICorner")
         UICorner.CornerRadius = UDim.new(1, 0)
         UICorner.Parent = ImageButton2
+
+        local Ico = Instance.new("ImageLabel")
+        Ico.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Ico.Name = "Ico"
+        Ico.AnchorPoint = Vector2.new(0.5, 0.5)
+        Ico.Image = img
+        Ico.BackgroundTransparency = 1
+        Ico.Position = UDim2.new(0.5, 0, 0.5, 0)
+        Ico.Size = UDim2.new(0.7178571224212646, 0, 0.7061014771461487, 0)
+        Ico.BorderSizePixel = 0
+        Ico.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Ico.Parent = ImageButton2
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.CornerRadius = UDim.new(1, 0)
+        UICorner.Parent = Ico
+
+        local Border = Instance.new("UIStroke")
+        Border.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+        Border.Transparency = 0.800000011920929
+        Border.Name = "Border"
+        Border.Color = Color3.fromRGB(255, 255, 255)
+        Border.Parent = ImageButton2
         
         local TabSectionsContainer = Instance.new("Frame")
         TabSectionsContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1236,13 +1314,35 @@ function swaghublib:Window(name)
         ImageButton2.BorderColor3 = Color3.fromRGB(0, 0, 0)
         ImageButton2.Size = UDim2.new(1, 0, 0.21198207139968872, 0)
         ImageButton2.BorderSizePixel = 0
-        ImageButton2.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+        ImageButton2.BackgroundColor3 = Color3.fromRGB(25, 27, 29)
         ImageButton2.Parent = SectionsContainer
-        ImageButton2.Image = img
 
         local UICorner = Instance.new("UICorner")
         UICorner.CornerRadius = UDim.new(1, 0)
         UICorner.Parent = ImageButton2
+
+        local Ico = Instance.new("ImageLabel")
+        Ico.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Ico.Name = "Ico"
+        Ico.AnchorPoint = Vector2.new(0.5, 0.5)
+        Ico.Image = img
+        Ico.BackgroundTransparency = 1
+        Ico.Position = UDim2.new(0.5, 0, 0.5, 0)
+        Ico.Size = UDim2.new(0.7178571224212646, 0, 0.7061014771461487, 0)
+        Ico.BorderSizePixel = 0
+        Ico.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Ico.Parent = ImageButton2
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.CornerRadius = UDim.new(1, 0)
+        UICorner.Parent = Ico
+
+        local Border = Instance.new("UIStroke")
+        Border.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+        Border.Transparency = 0.800000011920929
+        Border.Name = "Border"
+        Border.Color = Color3.fromRGB(255, 255, 255)
+        Border.Parent = ImageButton2
 
         local AltManagerFrame = Instance.new("ImageLabel")
         AltManagerFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -1837,5 +1937,7 @@ function swaghublib:Window(name)
 
     return sections
 end
+
+
 
 return swaghublib
