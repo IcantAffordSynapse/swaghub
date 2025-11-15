@@ -9,6 +9,11 @@ local games = {
     Status = "🟢",
     GameID = 105555311806207
   },
+  NNNights = {
+    GameName = "99 Nights in the Forest",
+    Status = "🟢",
+    GameID = 79546208627805
+  },
   TOH = {
     GameName = "Tower of Hell",
     Status = "🟡",
