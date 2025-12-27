@@ -516,6 +516,9 @@ function swaghublib:Window(name)
         UIListLayout.Parent = TabSectionsContainer
 
         ImageButton2.MouseButton1Click:Connect(function()
+            for i, v in pairs(SectionsContainer:GetChildren()) do
+                if v:IsA("ImageButton") then v.Border.Thickness = 1 end
+            end
             for i, v in pairs(MainSection:GetChildren()) do
                 if v.Name == "TabSectionsContainer" or v.Name == "SectionContainer" then
                     v.Visible = false
@@ -523,6 +526,7 @@ function swaghublib:Window(name)
             end
 
             TabSectionsContainer.Visible = true
+            Border.Thickness = 2
         end)
 
         local channels = {}
@@ -591,12 +595,17 @@ function swaghublib:Window(name)
             UIListLayout.Parent = SectionContainer
 
             ImageButton.MouseButton1Click:Connect(function()
+                for i, v in pairs(TabSectionsContainer:GetChildren()) do
+                    if v:IsA("ImageButton") then v.Border.Thickness = 1 end
+                end
                 for i, v in pairs(MainSection:GetChildren()) do
                     if v.Name == "SectionContainer" then
+
                         v.Visible = false
                     end
                 end
                 SectionContainer.Visible = true
+                Border.Thickness = 2
             end)
 
             local instances = {}
@@ -1937,7 +1946,5 @@ function swaghublib:Window(name)
 
     return sections
 end
-
-
 
 return swaghublib
