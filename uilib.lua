@@ -363,18 +363,35 @@ function swaghublib:Window(name)
     Header.Name = "Header"
     Header.TextColor3 = Color3.fromRGB(129, 129, 129)
     Header.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Header.Text = "Coming Soon"
+    Header.Text = "SETTINGS"
     Header.TextSize = 14
     Header.Size = UDim2.new(0.9044724106788635, 0, 0.08623653650283813, 0)
-    Header.AnchorPoint = Vector2.new(0.5, 0.5)
+    Header.AnchorPoint = Vector2.new(0.5, 0)
     Header.BorderSizePixel = 0
     Header.BackgroundTransparency = 1
-    Header.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Header.Position = UDim2.new(0.5, 0, 0.05, 0)
     Header.FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
     Header.ZIndex = 3
     Header.TextScaled = true
     Header.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Header.Parent = SettingsTab
+
+    local SettingsContainer = Instance.new("Frame")
+    SettingsContainer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    SettingsContainer.AnchorPoint = Vector2.new(0.5, 0.5)
+    SettingsContainer.BackgroundTransparency = 1
+    SettingsContainer.Position = UDim2.new(0.5, 0, 0.5600000023841858, 0)
+    SettingsContainer.Name = "SettingsContainer"
+    SettingsContainer.Size = UDim2.new(0.904, 0, 0.781, 0)
+    SettingsContainer.BorderSizePixel = 0
+    SettingsContainer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    SettingsContainer.Parent = SettingsTab
+
+    local UIListLayout = Instance.new("UIListLayout")
+    UIListLayout.Padding = UDim.new(0.019999999552965164, 0)
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.Parent = SettingsContainer
 
     local OpenLib = Instance.new("ImageButton")
     OpenLib.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -460,6 +477,54 @@ function swaghublib:Window(name)
     end)
 
     local sections = {}
+
+    function sections:NewSetting(name, sort, cb)
+        if sort == "btn" then
+            local ButtonInstance = Instance.new("ImageButton")
+            ButtonInstance.AnchorPoint = Vector2.new(0.5, 0.5)
+            ButtonInstance.Name = "ButtonInstance"
+            ButtonInstance.Position = UDim2.new(0.4999997317790985, 0, 0.05401013046503067, 0)
+            ButtonInstance.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            ButtonInstance.Size = UDim2.new(0.9910001158714294, 0, 0.10802000761032104, 0)
+            ButtonInstance.BorderSizePixel = 0
+            ButtonInstance.BackgroundColor3 = Color3.fromRGB(25, 27, 29)
+            ButtonInstance.Parent = SettingsContainer
+
+            local UICorner = Instance.new("UICorner")
+            UICorner.CornerRadius = UDim.new(0.20000000298023224, 0)
+            UICorner.Parent = ButtonInstance
+
+            local Border = Instance.new("UIStroke")
+            Border.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            Border.Transparency = 0.800000011920929
+            Border.Name = "Border"
+            Border.Color = Color3.fromRGB(255, 255, 255)
+            Border.Parent = ButtonInstance
+
+            local Header = Instance.new("TextLabel")
+            Header.FontFace = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+            Header.AnchorPoint = Vector2.new(0.5, 0.5)
+            Header.ZIndex = 3
+            Header.TextSize = 14
+            Header.Size = UDim2.new(0.8862279653549194, 0, 0.6345722079277039, 0)
+            Header.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Header.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            Header.Text = name
+            Header.Name = "Header"
+            Header.TextWrapped = true
+            Header.BackgroundTransparency = 1
+            Header.TextXAlignment = Enum.TextXAlignment.Left
+            Header.Position = UDim2.new(0.49394845962524414, 0, 0.49999988079071045, 0)
+            Header.BorderSizePixel = 0
+            Header.TextScaled = true
+            Header.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Header.Parent = ButtonInstance
+
+            ButtonInstance.MouseButton1Click:Connect(function()
+                pcall(cb)
+            end)
+        end
+    end
 
     function sections:Server(name, img)
         local ImageButton2 = Instance.new("ImageButton")
