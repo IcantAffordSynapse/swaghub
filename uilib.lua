@@ -1165,6 +1165,14 @@ function swaghublib:Window(name)
                     Header.Parent = DropdownToggleInstance
 
                     DropdownToggleInstance.MouseButton1Click:Connect(function()
+                        for _, v in pairs(DropdownContainer:GetChildren()) do
+                            if v:IsA("ImageButton") and v:FindFirstChild("Header") then
+                                v.Header.Text = v.Header.Text:gsub(">", "")
+                            end
+                        end
+
+                        Header.Text = ">" .. Header.Text
+
                         pcall(cb, v)
                     end)
                 end
