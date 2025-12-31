@@ -6,3 +6,5 @@ https://discord.gg/jyYZmCn2bt
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IcantAffordSynapse/swaghub/refs/heads/main/swagmain.lua"))()
 ```
+
+## BY USING SWAG, YOU ACKNOWLEDGE AND AGREE THAT IF A MODIFIED OR TAMPERED VERSION OF THE SCRIPT IS DETECTED, SECURITY DATA (INCLUDING IP ADDRESS, HARDWARE IDENTIFIER, EXECUTOR, AND ROBLOX USER ID) MAY BE LOGGED FOR ANTI-TAMPER PURPOSES.
