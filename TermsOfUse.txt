@@ -1,0 +1,55 @@
+SWAG HUB – Terms of Use
+
+Effective Date: 31 December 2025
+
+By using SWAG, you agree to the following terms:
+
+1. Data Collection
+
+SWAG may and will log the following information for security and anti-tamper purposes:
+
+IP address
+
+Hardware identifier (HWID)
+
+Roblox username and User ID
+
+Executor used to run the script
+
+This data is collected to protect the integrity of SWAG and prevent unauthorized or modified use.
+
+2. Consent
+
+By downloading, running, or interacting with SWAG, you consent to the collection of the data described above. If you do not agree, do not use SWAG.
+
+3. Modifications
+
+SWAG’s Terms of Use may change at any time without prior notice. Continued use constitutes acceptance of any changes.
+
+4. Restrictions
+
+You may not:
+
+Redistribute SWAG in modified or unauthorized form
+
+Attempt to deobfuscate, crack, or bypass anti-tamper protections
+
+Use SWAG to harass, attack, or harm others
+
+5. Liability
+
+SWAG is provided “as-is.” The authors are not liable for any:
+
+Loss of data
+
+Account bans or restrictions
+
+Hardware or software issues arising from SWAG
+
+7. Governing Law
+
+These Terms are governed by the laws of your jurisdiction. Any disputes will be resolved according to applicable local law.
+
+8. Contact
+
+For questions or concerns regarding these Terms of Use, please contact esore.fosho_50840 on Discord.
