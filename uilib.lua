@@ -1342,15 +1342,16 @@ function swaghublib:Window(name)
                 SliderValue.Parent = SliderInstance
 
                 local dragging = false
+                local lastValue = 0
 
                 local function setFromAlpha(alpha)
                     alpha = math.clamp(alpha, 0, 1)
                     local value = math.floor(min + (max - min) * alpha + 0.5)
+
                     SliderProg.Size = UDim2.new(alpha, 0, 1, 0)
                     SliderValue.Text = tostring(value)
-                    if cb then
-                        cb(value)
-                    end
+
+                    lastValue = value
                 end
 
                 local function updateFromInput(x)
@@ -1358,29 +1359,42 @@ function swaghublib:Window(name)
                     setFromAlpha(rel)
                 end
 
-                -- Initialize position from norm
+                -- Initialize (NO callback)
                 setFromAlpha((norm - min) / (max - min))
 
                 SliderBG.InputBegan:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                        sliderInUse = true
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 
+                        or input.UserInputType == Enum.UserInputType.Touch then
+
                         dragging = true
+                        sliderInUse = true
                         updateFromInput(input.Position.X)
                     end
                 end)
 
                 UIS.InputChanged:Connect(function(input)
-                    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                    if dragging and 
+                    (input.UserInputType == Enum.UserInputType.MouseMovement 
+                        or input.UserInputType == Enum.UserInputType.Touch) then
+
                         updateFromInput(input.Position.X)
                     end
                 end)
 
                 UIS.InputEnded:Connect(function(input)
-                    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 
+                        or input.UserInputType == Enum.UserInputType.Touch then
+
                         dragging = false
                         sliderInUse = false
+
+                        -- Fire callback ONCE when user releases
+                        if cb then
+                            cb(lastValue)
+                        end
                     end
                 end)
+
             end
 
             return instances
