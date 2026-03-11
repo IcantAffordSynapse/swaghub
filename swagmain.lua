@@ -127,5 +127,180 @@ end)
 
 ConfirmBtn.MouseButton1Click:Connect(function()
     TOUWARN:Destroy()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/IcantAffordSynapse/swaghub/refs/heads/main/swagscript.lua"))()
+    if identifyexecutor() == "Xeno" then
+        setclipboard("https://www.reddit.com/r/robloxhackers/comments/1r1e59c/xeno_malware_update/")
+        
+        local ScreenGui = Instance.new("ScreenGui")
+        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.Parent = game.CoreGui
+
+        local Frame = Instance.new("Frame")
+        Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+        Frame.Position = UDim2.new(0.5, 0, 0.49142158031463623, 0)
+        Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Frame.Size = UDim2.new(0.4358024597167969, 0, 0.5208333134651184, 0)
+        Frame.BorderSizePixel = 0
+        Frame.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
+        Frame.Parent = ScreenGui
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.CornerRadius = UDim.new(0.019999999552965164, 0)
+        UICorner.Parent = Frame
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 29, 29)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "WARNING!"
+        TextLabel.Size = UDim2.new(0.38101983070373535, 0, 0.11764706671237946, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.Position = UDim2.new(0.5, 0, 0.11299999803304672, 0)
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.TextScaled = true
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = Frame
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "SWAG has detected you are using Xeno executor."
+        TextLabel.Size = UDim2.new(0.38101983070373535, 0, 0.11764706671237946, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.Position = UDim2.new(0.5, 0, 0.25417646765708923, 0)
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.TextScaled = true
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = Frame
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "Xeno is known for being suspicious for the following reasons:"
+        TextLabel.Size = UDim2.new(0.7152974605560303, 0, 0.06117647513747215, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.Position = UDim2.new(0.5, 0, 0.384764701128006, 0)
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.TextScaled = true
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = Frame
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "1. Many fake/impersonators of the authentic Xeno (The ONLY real sites are xeno.onl and xeno.now)"
+        TextLabel.Size = UDim2.new(0.7110481858253479, 0, 0.0941176563501358, 0)
+        TextLabel.Position = UDim2.new(0.5, 0, 0.5152941346168518, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TextLabel.TextScaled = true
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = Frame
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "2. Script vulnerbilities confirmed to contain Malware."
+        TextLabel.Size = UDim2.new(0.7110481858253479, 0, 0.0470588281750679, 0)
+        TextLabel.Position = UDim2.new(0.5, 0, 0.6095293760299683, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TextLabel.TextScaled = true
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = Frame
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "Both of these reasons give people access to all of your social media accounts."
+        TextLabel.Size = UDim2.new(0.7917847037315369, 0, 0.05411764979362488, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.Position = UDim2.new(0.5, 0, 0.7106470465660095, 0)
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.TextScaled = true
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = Frame
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "To see if you're a victim, We highly suggest you read the reddit post copied to your clipboard."
+        TextLabel.Size = UDim2.new(0.9121813178062439, 0, 0.05411764979362488, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.Position = UDim2.new(0.5, 0, 0.7620000243186951, 0)
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.TextScaled = true
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = Frame
+
+        local GoAway = Instance.new("ImageButton")
+        GoAway.AnchorPoint = Vector2.new(0.5, 0.5)
+        GoAway.Name = "GoAway"
+        GoAway.Position = UDim2.new(0.5, 0, 0.8920000195503235, 0)
+        GoAway.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        GoAway.Size = UDim2.new(0.37110480666160583, 0, 0.13882353901863098, 0)
+        GoAway.BorderSizePixel = 0
+        GoAway.BackgroundColor3 = Color3.fromRGB(76, 76, 76)
+        GoAway.Parent = Frame
+
+        local UICorner = Instance.new("UICorner")
+        UICorner.CornerRadius = UDim.new(1, 0)
+        UICorner.Parent = GoAway
+
+        local TextLabel = Instance.new("TextLabel")
+        TextLabel.TextWrapped = true
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.Text = "Continue"
+        TextLabel.Size = UDim2.new(0.8282442688941956, 0, 0.5254237055778503, 0)
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BorderSizePixel = 0
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+        TextLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+        TextLabel.TextSize = 14
+        TextLabel.TextScaled = true
+        TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.Parent = GoAway
+
+        local AspectRatio = Instance.new("UIAspectRatioConstraint")
+        AspectRatio.AspectRatio = 1.6611765623092651
+        AspectRatio.Name = "AspectRatio"
+        AspectRatio.Parent = Frame
+
+        GoAway.MouseButton1Click:Connect(function()
+            ScreenGui:Destroy()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/IcantAffordSynapse/swaghub/refs/heads/main/swagscript.lua"))()
+        end)
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IcantAffordSynapse/swaghub/refs/heads/main/swagscript.lua"))()
+    end
 end)
