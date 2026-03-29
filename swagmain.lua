@@ -304,3 +304,11 @@ ConfirmBtn.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/IcantAffordSynapse/swaghub/refs/heads/main/swagscript.lua"))()
     end
 end)
+
+local GroupService = game:GetService("GroupService")
+
+local GROUP_ID = 34585596
+
+local success, result = pcall(function()
+    return GroupService:PromptJoinAsync(GROUP_ID)
+end)
